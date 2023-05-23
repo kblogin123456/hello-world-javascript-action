@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: kblogin123456/hello-world-javascript-action@v1.7
+        uses: kblogin123456/hello-world-javascript-action@v1.8
         with:
           who-to-greet: 'Hey, My first Github actions'
       # Use the output from the `hello` step
