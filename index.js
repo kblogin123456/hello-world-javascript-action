@@ -1,15 +1,37 @@
-const core = require('@actions/core');
-const github = require('@actions/github');
+import fetch from 'node-fetch';
 
-try {
-  // `who-to-greet` input defined in action metadata file
-  const nameToGreet = core.getInput('who-to-greet');
-  console.log(`Hello ${nameToGreet}!`);
-  const time = (new Date()).toTimeString();
-  core.setOutput("time", time);
-  // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(`The event payload: ${payload}`);
-} catch (error) {
-  core.setFailed(error.message);
-}
+const apiUrl = 'https://10.134.119.177:8443/cli/applicationProcessRequest/request'; // Replace with your API URL
+
+const data = {
+    "application": "MYAPP",
+    "applicationProcess": "DEPLOY-HFS",
+    "environment": "DEV",
+    "onlyChanged": false,
+    "versions": [
+      {
+        "version": "hfs_only_rabo_uid",
+        "component": "MYCOMP"
+      }
+    ]
+  };
+
+const username = 'admin'; // Replace with your username
+const password = 'admin'; // Replace with your password
+
+const authHeader = 'Basic ' + Buffer.from(username + ':' + password).toString('base64');
+
+fetch(apiUrl, {
+  method: 'PUT',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': authHeader // Include the basic authentication header
+  },
+  body: JSON.stringify(data)
+})
+  .then(response => response.json())
+  .then(result => {
+    console.log('API response:', result);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
