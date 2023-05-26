@@ -7164,12 +7164,8 @@ function fixResponseChunkedTransferBadEnding(request, errorCallback) {
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-"use strict";
-__nccwpck_require__.r(__webpack_exports__);
-/* harmony import */ var node_fetch__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(277);
-
 const application = process.env.INPUT_APPLICATION;
 const applicationProcess = process.env.INPUT_APPLICATIONPROCESS;
 const environment = process.env.INPUT_ENVIRONMENT;
@@ -7243,8 +7239,9 @@ let intervalId;
     const apiUrl = 'https://'+hostname+':'+port+'/cli/applicationProcessRequest/requestStatus?request='+requestId
     const httpsAgent = new https.Agent({ rejectUnauthorized: false });
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+    const fetch = __nccwpck_require__(277);
 
-    (0,node_fetch__WEBPACK_IMPORTED_MODULE_0__["default"])(apiUrl, {
+    fetch(apiUrl, {
       agent: httpsAgent,
       headers: {
         'Authorization': `Basic ${Buffer.from(`${username}:${password}`).toString('base64')}`
