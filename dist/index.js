@@ -285,12 +285,10 @@ let intervalId;
       "applicationProcess": applicationProcess,
       "environment": environment,
       "onlyChanged": onlyChanged,
-      "versions": [
-        {
-          "version": versions,
-          "component": component
-        }
-      ]
+      "versions": versions.map(version => ({
+        "version": version,
+        "component": component
+      }))
     };
 
 
