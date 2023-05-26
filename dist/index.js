@@ -267,20 +267,10 @@ const port = process.env.INPUT_PORT;
 const username = process.env.INPUT_USERNAME;
 const password = process.env.INPUT_PASSWORD;
 const component = process.env.INPUT_COMPONENT;
-
-// const hostname = "10.134.119.177"
-// const port = "8443"
-// const username = 'admin';
-// const password = 'admin';
-// const application = 'MYAPP';
-// const applicationProcess = 'DEPLOY-HFS ';
-// const environment = 'DEV';
-// const onlyChanged = false;
-// const versions = 'hfs_only_rabo_uid'.split(',');
-// const component = 'MYCOMP';
 let requestId='';
 let intervalId; 
 const https = __nccwpck_require__(687); 
+
 __nccwpck_require__.e(/* import() */ 960).then(__nccwpck_require__.bind(__nccwpck_require__, 960))
 .then((module) => {
   const fetch = module.default;   
