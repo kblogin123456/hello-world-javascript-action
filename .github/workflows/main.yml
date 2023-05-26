@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Deploy UCD application
         id: Deploy_MYAPP
-        uses: kblogin123456/hello-world-javascript-action@v1.15
+        uses: kblogin123456/hello-world-javascript-action@v1.16
         with:
           application: 'MYAPP'
           applicationProcess: 'DEPLOY-HFS'
