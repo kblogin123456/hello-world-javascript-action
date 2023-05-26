@@ -1,10 +1,41 @@
-name: 'Trigger UCD API'
-description: 'Greet someone and record the time'
+name: 'Deploy UCD aapplication'
+description: 'Run UCD Application Process Request '
 inputs:
-  who-to-greet:  # UCD Application
-    description: 'Name of the UCD application'
+  application:
+    description: 'Application Name'
     required: true
-    default: 'MYAPP'
+  applicationProcess:
+    description: 'Application Process Name'
+    required: true
+  environment:
+    description: 'Environment Name'
+    required: true
+  onlyChanged:
+    description: 'onlyChanged'
+    required: false
+    type: boolean
+    default: false
+  versions:
+    description: '1 ore more Versions'
+    required: true
+    type: array
+  component:
+    description: 'component name'
+    required: 'true'
+  hostname:
+    description: 'UCD hostname'
+    required: true
+  port:
+    description: 'port'
+    required: true
+    default: '8443'
+  username:
+    description: 'username'
+    required: true
+  password:
+    description: 'password'
+    required: true
+    secret: true
 outputs:
   time: # id of output
     description: 'The time we greeted you'

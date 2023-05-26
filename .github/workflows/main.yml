@@ -3,13 +3,20 @@ on: [push]
 jobs:
   hello_world_job:
     runs-on: javascript-action-runner
-    name: A job to say hello
+    name: A job to deploy UCD application
     steps:
-      - name: Hello world action step
-        id: hello
-        uses: kblogin123456/hello-world-javascript-action@v1.8
+      - name: Deploy UCD application
+        id: Deploy MYAPP
+        uses: kblogin123456/hello-world-javascript-action@v1.9
         with:
-          who-to-greet: 'Hey, My first Github actions'
+          application: 'MYAPP'
+          applicationProcess: 'DEPLOY-HFS'
+          environment: 'DEV'
+          versions: 'hfs_only_rabo_uid'
+          component: 'MYCOMP'
+          hostname: '10.134.119.177'
+          username: 'admin'
+          password: '${{ secrets.UCD_PASSWORD }}'
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
