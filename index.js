@@ -96,7 +96,11 @@ function triggerAPI() {
   
         if (result.status === 'CLOSED') {
           console.log('Status is CLOSED. Breaking the loop.');
-          clearInterval(intervalId); // Clear the interval to stop the loop
+          clearInterval(intervalId);  
+        } else if (result.status === 'FAULTED' || result.status === 'FAULTING') {
+          console.error('Status is FAULTED or FAULTING. Breaking the loop and exiting with an error.');
+          clearInterval(intervalId);  
+          process.exit(1);  
         }
       })
       .catch(error => {
