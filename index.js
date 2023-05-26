@@ -1,24 +1,24 @@
-// const application = process.env.INPUT_APPLICATION;
-// const applicationProcess = process.env.INPUT_APPLICATIONPROCESS;
-// const environment = process.env.INPUT_ENVIRONMENT;
-// const onlyChanged = process.env.INPUT_ONLYCHANGED === 'true';
-// const versions = process.env.INPUT_VERSIONS.split(',');
-// const hostname = process.env.INPUT_HOSTNAME;
-// const port = process.env.INPUT_PORT;
-// const username = process.env.INPUT_USERNAME;
-// const password = process.env.INPUT_PASSWORD;
-// const component = process.env.INPUT_COMPONENT;
+const application = process.env.INPUT_APPLICATION;
+const applicationProcess = process.env.INPUT_APPLICATIONPROCESS;
+const environment = process.env.INPUT_ENVIRONMENT;
+const onlyChanged = process.env.INPUT_ONLYCHANGED === 'true';
+const versions = process.env.INPUT_VERSIONS.split(',');
+const hostname = process.env.INPUT_HOSTNAME;
+const port = process.env.INPUT_PORT;
+const username = process.env.INPUT_USERNAME;
+const password = process.env.INPUT_PASSWORD;
+const component = process.env.INPUT_COMPONENT;
 
-const hostname = "10.134.119.177"
-const port = "8443"
-const username = 'admin';
-const password = 'admin';
-const application = 'MYAPP';
-const applicationProcess = 'DEPLOY-HFS ';
-const environment = 'DEV';
-const onlyChanged = false;
-const versions = 'hfs_only_rabo_uid'.split(',');
-const component = 'MYCOMP';
+// const hostname = "10.134.119.177"
+// const port = "8443"
+// const username = 'admin';
+// const password = 'admin';
+// const application = 'MYAPP';
+// const applicationProcess = 'DEPLOY-HFS ';
+// const environment = 'DEV';
+// const onlyChanged = false;
+// const versions = 'hfs_only_rabo_uid'.split(',');
+// const component = 'MYCOMP';
 let requestId='';
 let intervalId; 
 const https = require('https'); 
