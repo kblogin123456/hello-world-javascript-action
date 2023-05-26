@@ -6,7 +6,7 @@ jobs:
     name: A job to deploy UCD application
     steps:
       - name: Deploy UCD application
-        id: Deploy MYAPP
+        id: Deploy_MYAPP
         uses: kblogin123456/hello-world-javascript-action@v1.9
         with:
           application: 'MYAPP'
